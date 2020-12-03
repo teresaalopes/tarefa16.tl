@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mainGaleria.css" type="text/css">
+    <title>Crie uma Galeria</title>
+
+    <script>
+        function showGaleria(){
+            var divGal = document.getElementById("galeria");
+            var divMenu = document.getElementById("menu");
+            var inputNum = document.getElementById("txtnum");
+
+            var num = parseInt(inputNum.value);
+
+            //esconde menu - mostra imagens - onclick
+            divGal.style.visibility = "visible";
+            divMenu.style.display = "none";
+            
+            for(var i=0; i<num; i++){
+                var newImg = document.createElement("img");
+                newImg.setAttribute("src", "images/algarve0.jpg");
+                document.getElementById("galeria").appendChild(newImg);
+
+                newImg.setAttribute("src", "images/algarve" + i + ".jpg");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <h3>Crie a sua própria galeria</h3>
+        <input type="number" id="txtnum" placeholder="Insira a qtd de imagens">
+        <button onclick="showGaleria();">Criar Galeria</button>
+    </div>
+    <div id="galeria"></div>
+</body>
+</html>
